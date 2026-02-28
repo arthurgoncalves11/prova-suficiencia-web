@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programação Web I - CRUD Funcionários</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <header>
+        <nav class="navbar">
+            <a onclick="showSection('list')" class="brand">Programação Web I</a>
+            <div class="nav-links">
+                <a href="#" onclick="showSection('insert')">Inserir</a>
+                <a href="#" onclick="showSection('list')">Listar</a>
+                <a href="#" onclick="showSection('edit')">Alterar</a>
+                <a href="#" onclick="showSection('delete')">Excluir</a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- INSERT -->
+        <section id="insert" class="section">
+            <article class="card">
+                <h2>Inserir Funcionário</h2>
+                <form id="insertForm">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" placeholder="Nome do funcionário" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="salary">Salário</label>
+                        <input type="number" id="salary" placeholder="Ex: 5000" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Idade</label>
+                        <input type="number" id="age" placeholder="Ex: 30" required />
+                    </div>
+                    <button type="submit" class="btn">Salvar</button>
+                </form>
+                <p id="insertMsg" class="msg"></p>
+            </article>
+        </section>
+
+        <!-- LIST -->
+        <section id="list" class="section hidden">
+            <article class="card">
+                <h2>Listar Funcionários</h2>
+                <button class="btn" onclick="loadEmployees()">Atualizar Lista</button>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Salário</th>
+                                <th>Idade</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody"></tbody>
+                    </table>
+                </div>
+                <div class="pagination" id="pagination"></div>
+            </article>
+        </section>
+
+        <!-- EDIT -->
+        <section id="edit" class="section hidden">
+            <article class="card">
+                <h2>Alterar Funcionário</h2>
+                <form id="editForm">
+                    <div class="form-group">
+                        <label for="editId">ID do Funcionário</label>
+                        <input type="number" id="editId" placeholder="ID" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="editName">Novo Nome</label>
+                        <input type="text" id="editName" placeholder="Nome" />
+                    </div>
+                    <div class="form-group">
+                        <label for="editSalary">Novo Salário</label>
+                        <input type="number" id="editSalary" placeholder="Salário" />
+                    </div>
+                    <div class="form-group">
+                        <label for="editAge">Nova Idade</label>
+                        <input type="number" id="editAge" placeholder="Idade" />
+                    </div>
+                    <button type="submit" class="btn">Atualizar</button>
+                </form>
+                <p id="editMsg" class="msg"></p>
+            </article>
+        </section>
+
+        <!-- DELETE -->
+        <section id="delete" class="section hidden">
+            <article class="card">
+                <h2>Excluir Funcionário</h2>
+                <form id="deleteForm">
+                    <div class="form-group">
+                        <label for="deleteId">ID do Funcionário</label>
+                        <input type="number" id="deleteId" placeholder="Informe o ID" required />
+                    </div>
+                    <button type="submit" class="btn btn-danger">Excluir</button>
+                </form>
+                <p id="deleteMsg" class="msg"></p>
+            </article>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
